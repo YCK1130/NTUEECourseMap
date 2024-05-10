@@ -6,8 +6,13 @@ A course map for NTUEE students
 
 ### Prerequisites
 
-install all dependencies
+```sh
+# NTUEECourseMap
+nvm use
+corepack use pnpm@latest
+```
 
+install all dependencies
 ```sh
 # NTUEECourseMap
 pnpm install:all
