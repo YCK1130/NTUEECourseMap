@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import ReactFlow, { useNodesState, useEdgesState } from 'reactflow';
-import CustomNode from './CustomNode';
-import 'reactflow/dist/style.css';
- 
+import React, { useState } from "react"
+import ReactFlow, { useNodesState, useEdgesState } from "reactflow"
+import CustomNode from "./CustomNode"
+import "reactflow/dist/style.css"
+
 // const defaultNodes = [
 //   { id: 'main', type: 'custom', position: { x: 320, y: 120 }, data: { label: 'the course' }},
 //   { id: 'pre-0', type: 'custom', position: { x: 20, y: 20 }, data: { label: 'calculus' }},
@@ -21,44 +21,54 @@ import 'reactflow/dist/style.css';
 // ];
 
 const nodeTypes = {
-  custom: CustomNode,
-};
+    custom: CustomNode,
+}
 
 type Node = {
-  id: string;
-  type: string;
-  position: {
-    x: number;
-    y: number;
-  }
-  data: {
-    label: string;
-  }
-};
+    id: string
+    type: string
+    position: {
+        x: number
+        y: number
+    }
+    data: {
+        label: string
+    }
+}
 
 type Edge = {
-  id: string;
-  source: string;
-  target: string;
-};
+    id: string
+    source: string
+    target: string
+}
 
 type RelationGraphInput = {
-  initNodes: Node[];
-  initEdges: Edge[];
-};
- 
-export default function RelationGraph( {initNodes, initEdges}: RelationGraphInput) {
-  const [nodes, setNodes, onNodesChange] = useNodesState(initNodes);
-  const [edges, setEdges, onEdgesChange] = useEdgesState(initEdges);
-  return (
-    <div style={{ width: '80vw', height: '80vh', backgroundColor: 'lightyellow' }}>
-      <ReactFlow 
-        nodes={nodes}
-        edges={edges}
-        onNodesChange={onNodesChange}
-        onEdgesChange={onEdgesChange}
-        nodeTypes={nodeTypes}
-      />
-    </div>
-  );
+    initNodes: Node[]
+    initEdges: Edge[]
+}
+
+export default function RelationGraph({
+    initNodes,
+    initEdges,
+}: RelationGraphInput) {
+    const [nodes, setNodes, onNodesChange] = useNodesState(initNodes)
+    const [edges, setEdges, onEdgesChange] = useEdgesState(initEdges)
+    return (
+        <div
+            style={{
+                width: "80vw",
+                height: "30vh",
+                color: "black",
+                backgroundColor: "lightyellow",
+            }}
+        >
+            <ReactFlow
+                nodes={nodes}
+                edges={edges}
+                onNodesChange={onNodesChange}
+                onEdgesChange={onEdgesChange}
+                nodeTypes={nodeTypes}
+            />
+        </div>
+    )
 }
